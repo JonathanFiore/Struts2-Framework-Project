@@ -1,0 +1,139 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>scuola</groupId>
+  <artifactId>scuola</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <build>
+	  
+	  <finalName>scuola</finalName>
+	  
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <release>17</release>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.3</version>
+      </plugin>
+      
+      <plugin>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-maven-plugin</artifactId>
+			<version>10.0.10</version>
+            <configuration>
+                <webApp>
+                    <contextPath>/${project.build.finalName}</contextPath>
+                </webApp>
+                <stopKey>CTRL+C</stopKey>
+                <stopPort>8999</stopPort>
+                <scanIntervalSeconds>10</scanIntervalSeconds>
+                <scanTargets>
+                    <scanTarget>src/main/webapp/WEB-INF/web.xml</scanTarget>
+                </scanTargets>
+            </configuration>
+        </plugin>
+        
+        
+    </plugins>
+    
+    
+  </build>
+  
+  <dependencies>
+	  <dependency>
+		    <groupId>org.apache.struts</groupId>
+		    <artifactId>struts2-core</artifactId>
+		    <version>6.3.0</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>commons-dbcp</groupId>
+		  <artifactId>commons-dbcp</artifactId>
+		  <version>1.4</version>
+		</dependency>
+		
+		<dependency>
+	        <groupId>org.mariadb.jdbc</groupId>
+	        <artifactId>mariadb-java-client</artifactId>
+	        <version>3.3.2</version>
+    	</dependency>
+    	
+    	<dependency>
+	        <groupId>org.apache.commons</groupId>
+	        <artifactId>commons-pool2</artifactId>
+	        <version>2.11.0</version>
+    	</dependency>
+    	
+    	
+    	
+    	
+    	
+    	<dependency>
+		    <groupId>org.apache.logging.log4j</groupId>
+		    <artifactId>log4j-core</artifactId>
+		    <version>2.22.1</version>
+		    
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.logging.log4j</groupId>
+		    <artifactId>log4j-api</artifactId>
+		    <version>2.22.1</version>
+		</dependency>
+		
+		
+		
+		
+		
+		
+		
+		<dependency>
+		    <groupId>com.sun.xml.ws</groupId>
+		    <artifactId>jaxws-rt</artifactId>
+		    <version>4.0.2</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-frontend-jaxws</artifactId>
+		    <version>4.0.3</version> <!-- Usa l'ultima versione disponibile -->
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-transports-http</artifactId>
+		    <version>4.0.3</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>jakarta.xml.bind</groupId>
+		    <artifactId>jakarta.xml.bind-api</artifactId>
+		    <version>4.0.0</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.sun.xml.bind</groupId>
+		    <artifactId>jaxb-impl</artifactId>
+		    <version>3.0.0</version> <!-- Utilizzo la versione 3.0.0 per garantire la compatibilità -->
+		</dependency>
+		
+		<!-- JAXB Runtime (implementazione) -->
+		<dependency>
+		    <groupId>org.glassfish.jaxb</groupId>
+		    <artifactId>jaxb-runtime</artifactId>
+		    <version>3.0.0</version> <!-- Utilizzo la versione 3.0.0 per garantire la compatibilità -->
+		</dependency>
+		
+		
+		
+		
+		
+
+
+  </dependencies>
+  
+</project>

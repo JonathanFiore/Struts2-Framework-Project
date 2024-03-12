@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+
+h2 {
+    color: #555;
+    margin-top: 20px;
+}
+
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+
+input[type="text"], input[type="checkbox"] {
+    margin-bottom: 5px;
+}
+
+
+input[type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Stile dei pulsanti al passaggio del mouse */
+input[type="submit"]:hover {
+    background-color: #45a049;
+}

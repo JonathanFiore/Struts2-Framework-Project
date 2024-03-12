@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+    
+
+    <package name="basicstruts2" extends="struts-default">
+		
+		
+		<interceptors>
+			
+            <interceptor name="authenticationInterceptor" class="interceptors.AuthenticationInterceptor"/>
+            
+            
+            <interceptor-stack name="customStack">
+				<interceptor-ref name="defaultStack" />
+		        <interceptor-ref name="authenticationInterceptor" />
+    		</interceptor-stack>
+    		
+        </interceptors>
+
+        <!--<default-interceptor-ref name="customStack"/>-->
+		
+		
+		
+		
+		<action name="login" class="action.login.Login" method="execute">
+            <result name="success">/pages/login.jsp</result>
+        </action>
+		
+		
+		<action name="loginCheck" class="action.login.LoginCheck" method="execute">
+            <result name="success" type="redirect">index</result>
+            <result name="error">/pages/login.jsp</result>
+            <result name="input">/pages/login.jsp</result>
+            
+        </action>
+        
+        
+        
+        
+        
+        
+        
+        
+		<action name="service" class="webServices.HelloWS">
+		<result name="success">/pages/success.jsp</result>
+        </action>
+		
+		
+		
+		
+		
+        <action name="index" class="action.HomePage" method="execute">
+			<interceptor-ref name="customStack"/>
+			<result name="login" type="redirect">login</result>
+            <result name="success">/pages/home/index.jsp</result>
+            <result name="error">/pages/genericError.jsp</result>
+        </action>
+        
+        
+         <action name="indexTeachers" class="action.HomePage" method="homeTeachers">
+			 <interceptor-ref name="customStack"/>
+			 <result name="login" type="redirect">login</result>
+            <result name="success">/pages/home/teacherIndex.jsp</result>
+            <result name="error">/pages/genericError.jsp</result>
+        </action>
+        
+        <action name="indexClasses" class="action.HomePage" method="homeClasses">
+			<interceptor-ref name="customStack"/>
+			<result name="login" type="redirect">login</result>
+            <result name="success">/pages/home/classIndex.jsp</result>
+            <result name="error">/pages/genericError.jsp</result>
+        </action>
+        
+        
+        
+        
+        <!--<action name="errorData" class="action.HomePage" method="execute">
+			<interceptor-ref name="customStack"/>
+			<result name="login" type="redirect">login</result>
+            <result name="success">/pages/home/index.jsp</result>
+            <result name="error">/pages/error.jsp</result>
+        </action>-->
+        
+        
+        
+        <!-- Sono già in una delle 3 pagine di errore, faccio chiamate che arrivano qui-->
+        
+         <action name="errorDataStudent" class="action.HomePage" method="execute">
+			 <interceptor-ref name="customStack"/>
+			 <result name="login" type="redirect">login</result>
+            <result name="success">/pages/home/index.jsp</result>
+            <result name="error">/pages/genericError.jsp</result>
+        </action>
+        
+        <action name="errorDataClass" class="action.HomePage" method="homeClasses">
+			<interceptor-ref name="customStack"/>
+			<result name="login" type="redirect">login</result>
+            <result name="success">/pages/home/classIndex.jsp</result>
+            <result name="error">/pages/genericError.jsp</result>
+        </action>
+        
+        <action name="errorDataTeacher" class="action.HomePage" method="homeTeachers">
+			<interceptor-ref name="customStack"/>
+			<result name="login" type="redirect">login</result>
+            <result name="success">/pages/home/teacherIndex.jsp</result>
+            <result name="error">/pages/genericError.jsp</result>
+        </action>
+        
+        
+        
+        
+        
+        <!-- INSERT REQUEST ACTIONS:-->
+        
+        <action name="insertClass" class="action.InsertRequestAction" method="insertClass">
+			<interceptor-ref name="customStack"/>
+			<result name="login" type="redirect">login</result>
+            <result name="success">/pages/insert/insertDataClass.jsp</result>
+            <result name="error">/pages/genericError.jsp</result>
+        </action>
+        
+        <action name="insertStudent" class="action.InsertRequestAction" method="insertStudent">
+			<interceptor-ref name="customStack"/>
+			<result name="login" type="redirect">login</result>
+            <result name="success">/pages/insert/insertDataStudent.jsp</result>
+             <result name="error">/pages/genericError.jsp</result>
+        </action>
+        
+        <action name="insertTeacher" class="action.InsertRequestAction" method="insertTeacher">
+			<interceptor-ref name="customStack"/>
+			<result name="login" type="redirect">login</result>
+            <result name="success">/pages/insert/insertDataTeachers.jsp</result>
+             <result name="error">/pages/genericError.jsp</result>
+        </action>
+        
+        
+        
+        <!-- INSERT ACTIONS:-->
+        
+        <action name="insertDataClass" class="action.dataReceivers.DataClassReceivers" method="execute">
+			<interceptor-ref name="customStack"/>
+			<result name="login" type="redirect">login</result>
+            <result name="success" type="redirect">indexClasses</result>
+            <result name="error">/pages/genericError.jsp</result>
+            <result name="input">/pages/insert/insertDataClass.jsp</result>
+            
+        </action>
+        
+        <action name = "insertDataStudent" class = "action.dataReceivers.DataStudentReceivers" method="execute">
+			<interceptor-ref name="customStack"/>
+			<result name="login" type="redirect">login</result>
+			<result name="success" type="redirect">index</result>
+			<result name="error">/pages/genericError.jsp</result>
+			<result name="input">/pages/insert/insertDataStudent.jsp</result>
+		</action>
+		
+		<action name = "insertDataTeacher" class = "action.dataReceivers.DataTeacherReceiver" method="execute">
+			<interceptor-ref name="customStack"/>
+			<result name="login" type="redirect">login</result>
+			<result name="success" type="redirect">indexTeachers</result>
+			<result name="error">/pages/genericError.jsp</result>
+			<result name="input">/pages/insert/insertDataTeachers.jsp</result>
+		</action>
+      
+      
+      <!-- MODIFY REQUEST ACTIONS:-->
+        
+        <action name="modifyClass" class="action.modify.ModifyRequestAction" method="modifyClass">
+			<interceptor-ref name="customStack"/>
+			<result name="login" type="redirect">login</result>
+            <result name="success">/pages/modify/modifyDataClass.jsp</result>
+            <result name="error">/pages/genericError.jsp</result>
+            <!--<result name="DERR">/pages/errorDataClass.jsp</result>-->
+        </action>
+        
+        
+        <action name="modifyStudent" class="action.modify.ModifyRequestAction" method="modifyStudent">
+			<interceptor-ref name="customStack"/>
+			<result name="login" type="redirect">login</result>
+            <result name="success">/pages/modify/modifyDataStudent.jsp</result>
+            <result name="error">/pages/genericError.jsp</result>
+             <!--<result name="DERR">/pages/errorDataStudent.jsp</result>-->
+        </action>
+        
+        <action name="modifyTeacher" class="action.modify.ModifyRequestAction" method="modifyTeacher">
+			<interceptor-ref name="customStack"/>
+			<result name="login" type="redirect">login</result>
+            <result name="success">/pages/modify/modifyDataTeacher.jsp</result>
+            <result name="error">/pages/genericError.jsp</result>
+             <!--<result name="DERR">/pages/errorDataTeacher.jsp</result>-->
+        </action>
+        
+        
+        
+        
+        <!-- MODIFY ACTIONS:-->
+        
+        <action name="ModifyDataClassReceiver" class="action.modifyDataReceivers.ModifyDataClassReceiver" method="execute">
+			<interceptor-ref name="customStack"/>
+			<result name="login" type="redirect">login</result>
+            <result name="success" type="redirect">indexClasses</result>
+            <result name="error">/pages/genericError.jsp</result>
+            <result name="input">/pages/modify/modifyDataClass.jsp</result>
+            <!--<result name="input" type="redirect">indexClasses</result>-->
+        </action>
+        
+        <action name="ModifyDataStudentReceiver" class="action.modifyDataReceivers.ModifyDataStudentReceiver" method="execute">
+			<interceptor-ref name="customStack"/>
+			<result name="login" type="redirect">login</result>
+            <result name="success" type="redirect">index</result>
+            <result name="error">/pages/genericError.jsp</result>
+            <result name="input">/pages/modify/modifyDataStudent.jsp</result>
+        </action>
+        
+        <action name="ModifyDataTeacherReceiver" class="action.modifyDataReceivers.ModifyDataTeacherReceiver" method="execute">
+			<interceptor-ref name="customStack"/>
+			<result name="login" type="redirect">login</result>
+            <result name="success" type="redirect">indexTeachers</result>
+            <result name="error">/pages/genericError.jsp</result>
+            <result name="input">/pages/modify/modifyDataTeacher.jsp</result>
+        </action>
+        
+        
+        
+        <!-- REMOVE ACTIONS:-->
+        
+        
+        <action name="RemoveClass" class="action.remove.Remove" method="removeClass">
+			<interceptor-ref name="customStack"/>
+			<result name="login" type="redirect">login</result>
+            <result name="success" type="redirect">indexClasses</result>
+            <result name="error">/pages/genericError.jsp</result>
+            <!--<result name="DERR">/pages/errorDataClass.jsp</result>-->
+        </action>
+        
+        <action name="RemoveStudent" class="action.remove.Remove" method="removeStudent">
+			<interceptor-ref name="customStack"/>
+			<result name="login" type="redirect">login</result>
+            <result name="success" type="redirect">index</result>
+            <result name="error">/pages/genericError.jsp</result>
+            <!--<result name="DERR">/pages/errorDataStudent.jsp</result>-->
+        </action>
+        
+        <action name="RemoveTeacher" class="action.remove.Remove" method="removeTeacher">
+			<interceptor-ref name="customStack"/>
+			<result name="login" type="redirect">login</result>
+            <result name="success" type="redirect">indexTeachers</result>
+            <result name="error">/pages/genericError.jsp</result>
+            <!--<result name="DERR">/pages/errorDataTeacher.jsp</result>-->
+        </action>
+        
+        
+        
+         <!-- DETAILS:-->
+         
+          <action name="DetailsStudent" class="action.details.Details" method="studentDetails">
+			  <interceptor-ref name="customStack"/>
+			  <result name="login" type="redirect">login</result>
+            <result name="success">/pages/details/studentDetails.jsp</result>
+            <result name="error">/pages/genericError.jsp</result>
+            <!--<result name="DERR">/pages/errorDataStudent.jsp</result>-->
+        </action>
+               
+               
+         <action name="DetailsTeacher" class="action.details.Details" method="teacherDetails">
+			 <interceptor-ref name="customStack"/>
+			 <result name="login" type="redirect">login</result>
+            <result name="success">/pages/details/teacherDetails.jsp</result>
+            <result name="error">/pages/genericError.jsp</result>
+             <!--<result name="DERR">/pages/errorDataTeacher.jsp</result>-->
+        </action>
+        
+        
+        
+        <action name="logout" class="action.logout.Logout" method="execute">
+			<interceptor-ref name="customStack"/>
+			<result name="login" type="redirect">login</result>
+            <result name="success" type="redirect">login</result>
+        </action>
+        
+    </package>
+
+</struts>

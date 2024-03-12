@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+/* Stile generale */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Stile per i link */
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+/* Stile per la tabella */
+table {
+    width: 80%;
+    margin: 0 auto; 
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+th {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Stile per i pulsanti all'interno della tabella */
+td a {
+    display: inline-block;
+    margin-right: 5px;
+    white-space: nowrap; 
+}
+
+/* Stile specifico per i link all'interno di un <p> nel <td> */
+td p {
+    margin-right: 0; /* Remove margin-right for links inside <p> in <td> */
+    display: inline-block;
+}
+
+
+@media (max-width: 1023px) {
+    td p {
+        display: block; /* Change to block for stacking vertically */
+        margin-bottom: 5px; /* Add margin between stacked buttons */
+    }
+}
+
+ /* Hide CF column when window width is less than 1024px , 
+ da sistemare per utenti standard (La loro prima colonna sarà il nome)*/
+  @media (max-width: 1023px) {
+    .firstCol{
+      display: none;
+    }
+  }
+
+
+h1{
+	text-align: center;
+	margin-left: 0;
+}
+
+.create {
+	text-align: center;
+}
+
+/* Stile per il menu */
+.menu {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #e0e0e0; /* Colore più chiaro */
+    padding: 10px;
+}
+
+/* Stile per i link nel menu */
+.menu a {
+    text-decoration: none;
+    color: #fff; /* Colore del testo più scuro */
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #007bff; /* Colore diverso durante l'hover */
+}
+
+.out {
+   margin-left: auto; 
+}
+
+/* Stile per la label corrente */
+.current-page {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #333; /* Colore del testo più scuro */
+}
+
+
+/* Aggiungi queste regole al tuo foglio di stile */
+
+
+/* Stilizza il link come un pulsante */
+p a {
+    display: inline-block; /* Per evitare che il link si comporti come un blocco */
+    padding: 5px 10px; /* Aggiungi spaziatura interna per un aspetto più pulito */
+    text-decoration: none; /* Rimuovi la sottolineatura predefinita del link */
+    color: #fff; /* Colore del testo */
+    background-color: #0db4f2; /* Colore di sfondo del pulsante */
+    border-radius: 3px; /* Bordi arrotondati */
+}
+
+/* Cambia colore del link quando passi sopra */
+p a:hover {
+    background-color: #0056b3; /* Cambia il colore di sfondo quando passi sopra */
+}

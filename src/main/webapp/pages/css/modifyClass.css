@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+/* Stile generale */
+
+
+/* General style */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* Light gray background */
+    color: #495057; /* Dark gray text */
+    margin: 0;
+    padding: 0;
+}
+
+/* Form style */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff; /* White background */
+    border: 1px solid #e2e2e2; /* Light gray border */
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+}
+
+/* Label style */
+label {
+    display: block;
+    margin-bottom: 10px; /* Increased margin for better spacing */
+    font-weight: bold; /* Bold labels */
+    color: #007bff; /* Blue label color */
+}
+
+/* Heading style */
+h1, h3, h4 {
+    color: #007bff; /* Blue heading color */
+}
+
+/* Table style */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #e2e2e2; /* Light gray border */
+    padding: 12px; /* Increased padding for better spacing */
+    text-align: left;
+}
+
+/* Submit button style */
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 20px; /* Increased padding for better appearance */
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Checkbox style */
+input[type="checkbox"] {
+    margin-right: 8px; /* Reduced margin for better alignment */
+}
+
+/* Error message style */
+h3 {
+    color: #dc3545; /* Red error message color */
+}
+
+/* Link style */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
