@@ -73,7 +73,7 @@ _For simplicity's sake, we only show the students' insert page_
 #### DB data:
 <img src="ImagesREADME/DB.png" alt="Image 2">
 
-_Password are encrypted with SHA-256_
+_Passwords are encrypted with SHA-256_
 <br/>
 
 ---
