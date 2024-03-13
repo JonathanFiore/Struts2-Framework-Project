@@ -70,7 +70,7 @@ _For simplicity's sake, we only show the students' edit page_
 _For simplicity's sake, we only show the students' insert page_
 
 
-#### DB data:
+#### DB users data:
 <img src="ImagesREADME/DB.png" alt="Image 2">
 
 _Passwords are encrypted with SHA-256_
